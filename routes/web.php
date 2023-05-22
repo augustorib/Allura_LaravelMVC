@@ -15,18 +15,17 @@ use App\Http\Controllers\GamesController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/helloworld', function () {
     echo 'Hello Wolrd';
 });
 
-Route::get('/menu', [MenuController::class, 'index']);
 
+Route::get('/', [MenuController::class, 'index']);
 
-
-
+Route::get('/games/index', [GamesController::class, 'index']);
 Route::get('/games/create', [GamesController::class, 'create']);
 Route::post('/games/store', [GamesController::class, 'store']);
