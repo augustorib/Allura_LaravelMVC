@@ -26,6 +26,11 @@ Route::get('/helloworld', function () {
 
 Route::get('/', [MenuController::class, 'index']);
 
-Route::get('/games/index', [GamesController::class, 'index']);
-Route::get('/games/create', [GamesController::class, 'create']);
-Route::post('/games/store', [GamesController::class, 'store']);
+
+Route::controller(GamesController::class)->group(function(){
+    Route::get('/games/index',  'index')->name('games.index');
+    Route::get('/games/create', 'create')->name('games.create');
+    Route::post('/games/store', 'store')->name('games.store');
+    Route::delete('/games/destroy/{id}', 'destroy')->name('games.destroy');
+});
+

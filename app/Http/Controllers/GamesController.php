@@ -29,7 +29,6 @@ class GamesController extends Controller
         $gameYear = $request->input('gameYear');
 
         //DB::insert('insert into Games (Name, Console, Year) values (?, ?, ?)', [$gameName, $gameConsole, $gameYear]);
-
         $games = new Games();
 
         $games->Name = $gameName;
@@ -37,6 +36,20 @@ class GamesController extends Controller
         $games->Year = $gameYear;
         $games->save();
 
-        return view('games/index');
+        return redirect('games/index');
+    }
+
+    public function destroy(Request $request){
+
+        $gameId = $request->id;
+
+        
+
+        $game = Games::find($gameId);
+        
+        $game->delete();
+
+        return redirect('/games/index');
+
     }
 }
