@@ -32,5 +32,7 @@ Route::controller(GamesController::class)->group(function(){
     Route::get('/games/create', 'create')->name('games.create');
     Route::post('/games/store', 'store')->name('games.store');
     Route::delete('/games/destroy/{id}', 'destroy')->name('games.destroy');
+    Route::get('/games/edit/{id}', 'edit')->name('games.edit');
+    Route::put('/games/{id}', 'update')->name('games.update');
 });
 
