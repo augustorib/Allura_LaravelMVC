@@ -25,6 +25,11 @@ class GamesController extends Controller
 
     public function store(Request $request){
 
+
+        $request->validate([
+            'gameName' => ['required','min:2']
+        ]);
+
         $gameName = $request->input('gameName');
         $gameConsole = $request->input('gameConsole');
         $gameYear = $request->input('gameYear');
