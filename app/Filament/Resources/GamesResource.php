@@ -12,18 +12,22 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
 
 class GamesResource extends Resource
 {
     protected static ?string $model = Games::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-play';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                //
+                TextInput::make('Name')->required(),
+                TextInput::make('Year')->required(),
+                TextInput::make('Console')->required(),
             ]);
     }
 
@@ -31,7 +35,11 @@ class GamesResource extends Resource
     {
         return $table
             ->columns([
-                //
+               TextColumn::make('Name')->icon('heroicon-s-mail'),
+               TextColumn::make('Year'),
+               TextColumn::make('Console')->words(1),
+               TextColumn::make('created_at')->since(),
+               //TextColumn::make('created_at')->datetime('d/m/y H:m'),
             ])
             ->filters([
                 //
