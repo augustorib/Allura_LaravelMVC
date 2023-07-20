@@ -19,12 +19,12 @@ use App\Http\Controllers\GamesController;
 //     return view('welcome');
 // });
 
-Route::get('/helloworld', function () {
+Route::get('/', function () {
     echo 'Hello Wolrd';
 });
 
 
-Route::get('/', [MenuController::class, 'index']);
+//Route::get('/', [MenuController::class, 'index']);
 
 
 Route::controller(GamesController::class)->group(function(){

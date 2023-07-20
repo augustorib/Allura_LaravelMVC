@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PermissionsResource\Pages;
-use App\Filament\Resources\PermissionsResource\RelationManagers;
+use App\Filament\Resources\PermissionResource\Pages;
+use App\Filament\Resources\PermissionResource\RelationManagers;
 use Spatie\Permission\Models\Permission;
 use Filament\Forms;
 use Filament\Forms\Components\TextInput;
@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 
-class PermissionsResource extends Resource
+class PermissionResource extends Resource
 {
     protected static ?string $model = Permission::class;
 
